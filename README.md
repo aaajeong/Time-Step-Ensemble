@@ -41,3 +41,23 @@
 - [Training_Checkpoint](/Users/ahjeong_park/Study/Survival-Ensemble/Checkpoint) 
 - [Test Data](/Users/ahjeong_park/Study/Attention-Ensemble-Translation/BLEU/test_data.txt) : 학습하지 않은 1000개의 spa-eng 데이터
 
+
+
+1. 모델이 출력한 단어 중에 다수결로 뽑힌 단어를 '세미 정답' 이라고 하겠다.
+
+   - 모델 결과 리스트에서 가장 많이 등장한 단어 찾기
+
+     딕셔너리로 횟수 count 후 가장 많은 횟수의 단어 출력?
+
+   - 세미 정답 저장
+
+   - 세미 정답을 출력한 모델들을 저장(인덱스로 저장?) -> 살아남은 모델들을 '위너' 라고 하겠다.
+
+2. 위너 모델에 세미 정답을 input 으로 전달 (어차피 위너가 세미 정답을 출력한 것 이기 때문에 그대로 input 전달한 것이라고 생각하면 됨)
+
+3. 위 1, 2 를 반복
+
+4. 만약 2개의 모델이 남았을 경우 둘 중 더 높은 Softmax 확률을 가진 모델이 살아남는다. 그리고 살아남은 모델로 계속 진행한다.
+
+
+
