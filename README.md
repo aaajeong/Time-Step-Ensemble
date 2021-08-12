@@ -130,4 +130,3 @@
 - [Training_Checkpoint](/Users/ahjeong_park/Study/Survival-Ensemble/Checkpoint) 
 - [Test Data](/Users/ahjeong_park/Study/Attention-Ensemble-Translation/BLEU/test_data.txt) : 학습하지 않은 1000개의 spa-eng 데이터
 - Survival_Translate.xlsx : 번역 결과 & QE 측정
-
