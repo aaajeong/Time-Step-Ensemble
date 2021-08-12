@@ -92,7 +92,7 @@
 
 ​	진짜 다수결 번역이란, 각각의 모델에 대해서 나온 결과물로 다수결 처리하여 번역하는 것을 말하겠다. 즉 RNN 중간 time-step 에서 앙상블을 이용하지 않고 원래대로 각 모델마다 번역 결과를 내놓으면, 그 결과를 기반으로 다수결을 통해 최종 번역을 완성한다.
 
-방법 :모델이 출력한 각각의 단어의 confidence(softmax) 평균 값으로, 그 평규은 문장에 대한 weight가 된다.
+방법 :모델이 출력한 각각의 단어의 confidence(softmax) 평균 값으로, 그 평균은 문장에 대한 weight가 된다.
 
 (예시)
 
@@ -110,7 +110,17 @@
 
 5번 모델:  I like you → 각 단어의 softmax 평균 값 ➡️ e
 
-**a, b, c, d, e 중 제일 큰 값이 이기는 건가????**
+먼저 1,2,3,4,5 모델의 결과가 같은지/아닌지를 그룹핑한다.
+
+(a, b, d) 와 (c, e) 가 그룹핑 되었다고 하면, 각 그룹의 소프트맥스 평균의 합을 구한다. 
+
+즉, **(a, b, d) 는 a+b+d** 이고, **(c, e) 는 c+e** 이다.
+
+이 중 *평균의 합이 가장 큰 그룹의 답* 을 채택하는 것이다.
+
+**이는 단순하게 모델 수에 기반한 다수결이 아니라 소프트맥스의 합을 고려한 다수결 결과이다.**
+
+**따라서 소프트맥스의 합이 높게 나온 숫자가 적은 쪽의 그룹이 숫자가 많은쪽을 이길 수도 있다.**
 
 
 
@@ -120,3 +130,4 @@
 - [Training_Checkpoint](/Users/ahjeong_park/Study/Survival-Ensemble/Checkpoint) 
 - [Test Data](/Users/ahjeong_park/Study/Attention-Ensemble-Translation/BLEU/test_data.txt) : 학습하지 않은 1000개의 spa-eng 데이터
 - Survival_Translate.xlsx : 번역 결과 & QE 측정
+
