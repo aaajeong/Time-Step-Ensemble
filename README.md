@@ -1,5 +1,5 @@
 # 🎓Time-Step Ensemble🎓
-- NMT Translation Study 및 연구 이어서
+- [NMT Translation Study](https://github.com/aaajeong/NMT-Ensemble-Study) 및 연구 이어서
 
 
 
