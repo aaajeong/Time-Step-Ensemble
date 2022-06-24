@@ -1,24 +1,23 @@
-# 🎓Survival-Ensemble🎓
-- Tensorflow Attention 기계번역 Ensemble 연구 이어서 - Survival Ensemble
+# 🎓Time-Step Ensemble🎓
+- NMT Translation Study 및 연구 이어서
 
 
 
 #### 📝 연구 주제 : 기계 번역 모델의 앙상블 적용할 때 성능이 좋지 않는 것을 하나씩 떨어뜨리는 서바이벌 방식으로 했을 때 성능 향상이 있을까?
 
----
 
 
 
 #### 🔎 Ensemble Survival 코드 1
 
-- 코드 : [nmt_Ensemble_Survival.ipynb](https://github.com/aaajeong/Survival-Ensemble/blob/main/nmt_Ensemble_Survival.ipynb)
+- 코드 : [nmt_Ensemble_Survival.ipynb](./nmt_Ensemble_Survival.ipynb)
   - 5개의 모델 중에서 제일 좋지 않은 모델은 제외하고
-  - 나머지 모델에서 소프트 보팅 & 가장 높은 확률을 가진 모델 로 결출력
-- [Test Data](/Users/ahjeong_park/Study/Attention-Ensemble-Translation/BLEU/test_data.txt) : 학습하지 않은 1000개의 spa-eng 데이터
-- [Training Data](/Users/ahjeong_park/Study/Attention-Ensemble-Translation/BLEU/spa-eng(for BLEU).txt)
+  - 나머지 모델에서 소프트 보팅 & 가장 높은 확률을 가진 모델로 결과 출력
+- [Test Data](./Dataset/test/test_data.txt) : 학습하지 않은 1000개의 spa-eng 데이터
+- [Training Data](https://github.com/aaajeong/NMT-Ensemble-Study/blob/main/BLEU/spa-eng(for%20BLEU).txt)
 - [Training Checkpoint](/Users/ahjeong_park/Study/Attention-Ensemble-Translation/5 Models Checkpoints_60000) : 트레이닝 데이터 1~60000 line
-- [QE 계산 코드](/Users/ahjeong_park/Study/Attention-Ensemble-Translation/BLEU/Calculate_QE.ipynb)
-- [Survival_Ensemble.xlsx](https://github.com/aaajeong/Survival-Ensemble/blob/main/Survival_Translate.xlsx) : 위 설명한 2개 버전 서바이벌 모델 결과 & QE 비교 정리
+- [QE 계산 코드](https://github.com/aaajeong/NMT-Ensemble-Study/blob/main/BLEU/Calculate_QE.ipynb)
+- [Survival_Ensemble.xlsx](./Survival_Translate.xlsx) : 위 설명한 2개 버전 서바이벌 모델 결과 & QE 비교 정리
 
 💥 서바이벌 방식 수정 필요 💥
 
@@ -27,7 +26,7 @@
 - **그래서 모델은 많을 수록 좋다.**
 - 번역을 시작할때는 모든 모델 참여
 
-
+---
 
 #### 🔎 Ensemble Survival 코드 2- 맞춘 애들끼리만 살아남자
 
@@ -38,8 +37,8 @@
 모델 개수 : 총 15개로 진행한다.
 
 - 코드 : nmt_Survival_Only_Win.ipynb 
-- [Training_Checkpoint](/Users/ahjeong_park/Study/Survival-Ensemble/Checkpoint) 
-- [Test Data](/Users/ahjeong_park/Study/Attention-Ensemble-Translation/BLEU/test_data.txt) : 학습하지 않은 1000개의 spa-eng 데이터
+- [Training_Checkpoint](./Checkpoint) 
+- [Test Data](./Dataset/test/test_data.txt) : 학습하지 않은 1000개의 spa-eng 데이터
 - Survival_Translate.xlsx : 번역 결과 & QE 측정
 
 [ 서바이벌 모델 번역 과정]
@@ -86,7 +85,7 @@
 
 **👉 단일 모델과 비교했을 때 서바이벌 모델의 성능이 좋아보인다.** RNN의 time-step 에서 앙상블을 이용해서 번역을 한 결과 단일 모델 보다 성능이 더 좋아보인다. 그렇다면 이 서바이벌 방식이 정말로 좋은가 확인해보기 위해서 **앙상블을 하지 않은 "진짜 다수결" 번역 모델**과 비교 해보자.
 
-
+---
 
 #### 🔎 단일 모델 결과의 다수결을 통한 번역 - 진짜 다수결 번역 
 
@@ -127,8 +126,8 @@
 모델 개수 : 총 15개로 진행한다.
 
 - 코드 : nmt_Real_majority.ipynb 
-- [Training_Checkpoint](/Users/ahjeong_park/Study/Survival-Ensemble/Checkpoint) 
-- [Test Data](/Users/ahjeong_park/Study/Attention-Ensemble-Translation/BLEU/test_data.txt) : 학습하지 않은 1000개의 spa-eng 데이터
+- [Training_Checkpoint](./Checkpoint) 
+- [Test Data](./Dataset/test/test_data.txt) : 학습하지 않은 1000개의 spa-eng 데이터
 - Survival_Translate.xlsx : 번역 결과 & QE 측정
 
 [QE 측정 결과]
@@ -178,6 +177,7 @@
 > (겨울 정보과학회 논문 제출 준비하기)
 
 
+---
 
 #### 🔎 위의 RNN의 앙상블을 적용해 볼 수 있는 다른 application
 
